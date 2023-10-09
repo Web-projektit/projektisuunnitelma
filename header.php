@@ -12,9 +12,11 @@ ini_set('default_charset', 'utf-8');
 <link rel="stylesheet" href="navbar.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
 <link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="suomi.css">
 <?php if (isset($css)) echo "<link rel='stylesheet' href='$css'>"; ?>
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script defer src="scripts.js"></script>
+<script defer src="projektisuunnitelma.js"></script>
 <title><?= $title ?? 'Sivusto'; ?></title>
 </head>
 <body>
@@ -62,12 +64,13 @@ switch ($loggedIn) {
     echo "<a class='".active('kayttajat',$active). "' href='kayttajat.php'>Käyttäjät</a>";
   case true:
     echo "<a class='".active('profiili',$active). "' href='profiili.php'>Profiili</a>";
+    echo "<a class='".active('projektisuunnitelma',$active). "' href='projektisuunnitelma.php'>Projektisuunnitelma</a>";
     echo "<a class='nav-suojaus ".active('phpinfo',$active). "' href='phpinfo.php'>phpinfo</a>";
     echo "<a class='".active('fake',$active). "' href='fake.php'>fake</a>";
     echo '<a href="poistu.php">Poistu</a>';
     break;
   default:
-    echo "<a class='".active('login',$active)."' href='login.php'>Kirjautuminen</a>";
+    echo "<a class='nav-suojaus ".active('login',$active)."' href='login.php'>Kirjautuminen</a>";
     break;
 } 
 

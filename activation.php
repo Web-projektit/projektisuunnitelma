@@ -6,6 +6,7 @@ if ($token) {
     $token = $yhteys->real_escape_string($token); 
     $query ="SELECT users_id,is_active,s.updated FROM signup_tokens s
              LEFT JOIN users ON users_id = id WHERE s.token = '$token'";
+    debuggeri($query);
     $result = $yhteys->query($query);
     if ($result->num_rows){
         list($id,$is_active,$ika) = $result->fetch_row();

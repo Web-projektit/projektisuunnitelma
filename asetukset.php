@@ -1,15 +1,16 @@
 <?php
 $PALVELIN = $_SERVER['HTTP_HOST'];
-$PALVELU = "projektit_PHP/php_sovellusmalli";
+$PALVELU = "projektit_PHP/projektisuunnitelma";
 $LINKKI_RESETPASSWORD = "resetpassword.php";
 $LINKKI_VERIFICATION = "verification.php";
-$PALVELUOSOITE = "asiakaspalvelu@neilikka.fi";
+$PALVELUNIMI = "Projektisuunnitelma";
+$PALVELUOSOITE = "asiakaspalvelu@projektisuunnitelma.fi";
 
 define("OLETUSSIVU","profiili.php");
 define("PROFIILIKUVAKANSIO","profiilikuvat");
 define("PROFIILIKUVAKOKO",5242880);
 
-$DB = "neilikka";
+$DB = "projektisuunnitelmat";
 $LOCAL = in_array($_SERVER['REMOTE_ADDR'],array('127.0.0.1','REMOTE_ADDR' => '::1'));
 if ($LOCAL) {	
     $tunnukset = "../../../tunnukset.php";

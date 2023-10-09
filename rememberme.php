@@ -45,7 +45,7 @@ $query = "DELETE FROM rememberme_tokens WHERE user_id = ?";
 $stmt = $yhteys->prepare($query);
 $stmt->bind_param('i', $user_id);
 $result = $stmt->execute();
-debuggeri("Poistettiin: $stmt->affected_rows rememberme_token.");
+//debuggeri("Poistettiin: $stmt->affected_rows rememberme_token.");
 return $result;
 }
 
@@ -120,7 +120,7 @@ return $loggedIn;
 }
 
 function loggedIn() {
-if (!session_id()) session_start();    
+if (!session_id()) session_start();   
 $loggedIn = $_SESSION['loggedIn'] ?? false;   
 /* Huom. loggedIn voi olla 'user', 'admin', jne. 
    loggedIn voi olla tässä user_id ja eväste vanhentunut.
@@ -132,6 +132,7 @@ if (!$loggedIn || is_int($loggedIn)) {
             // $loggedIn = hae_rooli($user_id);
             $loggedIn = $user_id;
             $_SESSION['loggedIn'] = $loggedIn;
+            $_SESSION['user_id'] = $loggedIn;
             }
         }
     }

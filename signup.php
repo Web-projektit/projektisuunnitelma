@@ -1,5 +1,4 @@
 <?php 
-$tietokanta = "neilikka";
 $title = 'Rekisteröityminen';
 $kentat_tiedosto = ['image'];
 //$css = 'rekisteroityminen.css';
@@ -8,7 +7,7 @@ $virheilmoitukset_json = json_encode($virheilmoitukset);
 echo "<script>const virheilmoitukset = $virheilmoitukset_json</script>";
 include "header.php";
 include "posti.php";
-include "rekisterointi.php";
+include "kasittelija_signup.php";
 ?>
 <div class="container"> 
 <form method="post" class="mb-3 needs-validation" enctype="multipart/form-data" novalidate >

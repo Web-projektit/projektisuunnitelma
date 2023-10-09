@@ -15,9 +15,13 @@ $kentat_suomi = ['sähköpostiosoite','salasana','muista minut'];
 $pakolliset = ['email','password'];
 include "virheilmoitukset.php";
 $virheilmoitukset_json = json_encode($virheilmoitukset);
-echo "<script>const virheilmoitukset = $virheilmoitukset_json</script>";
 include "header.php"; 
-include('kasittelija_login.php');
+include "kasittelija_login.php";
+$email ??= "";
+echo "<script>
+const virheilmoitukset = $virheilmoitukset_json;
+const email = '$email';
+</script>";
 ?>
 <div class="container">
 
@@ -70,26 +74,30 @@ include('kasittelija_login.php');
 
 <div class="row offset-sm-4">
 <!--<p class="mt-2 pt-1 mb-0">Käyttäjätunnus puuttuu?-->
-<a href="rekisteroitymislomake.php">Rekisteröidy</a>
+<a href="signup.php">Rekisteröidy</a>
 </div>
 
 </fieldset>
 </form>
 
-<?php
-/*if (isset($_POST['painike']) && $errors){
-    echo '<div class="ilmoitukset mt-3">';
-    foreach ($errors as $kentta => $arvo) {
-      echo "<div class=\"alert alert-danger\" role=\"alert\">$arvo</div>";   
-      }
-    echo "</div>";
-    }*/
+<?php 
+if (isset($errors['email']) && $errors['email'] == $virheilmoitukset['verificationRequiredErr']) {
+  $display = "d-block";
+  $message = $virheilmoitukset['verificationRequiredErr'];
+  $success = "danger";
+  $nayta_linkki = '
+  <div id="ilmoitukset_email" class="alert alert-info alert-dismissible fade show d-block" role="alert">
+  <p><a id="confirmLink" href="#">Lähetä vahvistuslinkki tarvittaessa uudestaan</a></p>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
+}
 ?>
-
 <div id="ilmoitukset" class="alert alert-<?= $success ;?> alert-dismissible fade show <?= $display ?? ""; ?>" role="alert">
 <p><?= $message; ?></p>
 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+
+<?= $nayta_linkki ?? ""; ?>
 
 </div>
 <?php

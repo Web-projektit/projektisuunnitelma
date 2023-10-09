@@ -1,12 +1,12 @@
 <?php 
 $title = 'Sähköpostiosoitteen vahvistus';
 //$css = 'kuvagalleria.css';
-include "header.php"; 
+include "header.php";
 include "activation.php";
 ?>
 <div class="container"> 
 <div class="jumbotron text-center">
-<h1>Neilikka</h1>
+<h1><?= $PALVELUNIMI ?></h1>
 <div class="col-12 mb-5 text-center">
 <?php echo $email_already_verified; ?>
 <?php echo $email_verified; ?>

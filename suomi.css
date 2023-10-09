@@ -1,0 +1,76 @@
+:root {
+    --forest-green: #286655;
+    --lake-blue: #3a75a7;
+    --snow-white: #f5f5f5;
+    --northern-lights: #88aabb;
+    --birch-bark: #ddc5a2;
+    --berry-red: #aa2233;
+    --stone-gray: #7a7a7a;
+  }
+  
+  body {
+    background-color: var(--snow-white);
+    font-family: Arial, sans-serif;
+    color: var(--stone-gray);
+  }
+  
+  header {
+    background-color: var(--forest-green);
+    color: var(--snow-white);
+  }
+  
+  nav {
+    background-color: var(--lake-blue);
+    color: var(--snow-white);
+  }
+  
+  a {
+    color: var(--lake-blue);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--northern-lights);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--forest-green);
+  }
+  
+  p {
+    color: var(--stone-gray);
+  }
+  
+  button {
+    background-color: var(--berry-red);
+    color: var(--snow-white);
+    border: none;
+  }
+  
+  input, textarea, select {
+    background-color: var(--birch-bark);
+    color: var(--stone-gray);
+    border: 1px solid var(--stone-gray);
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid var(--stone-gray);
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: var(--forest-green);
+    color: var(--snow-white);
+  }
+  
+  footer {
+    background-color: var(--stone-gray);
+    color: var(--snow-white);
+  }
+  

@@ -1,3 +1,10 @@
 form {
     max-width:600px;
-}
+    }
+
+#confirmLink {
+    color: #000;
+    text-decoration: underline;
+    font-weight: bold;
+    }   
+ 

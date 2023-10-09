@@ -1,0 +1,77 @@
+.label-tooltip {
+    position: relative;
+    display: inline-block;
+    }   
+
+.tooltip {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    visibility: hidden;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 1;
+    }
+
+label.form-label {
+    display:block;
+    }
+
+.commentBox {
+    position:relative;
+    }
+
+.commentButton {
+    position:absolute;
+    top:1.6rem;
+    left:75%;
+    margin-left:0.25rem;
+    }
+
+.commentButton-input {
+    position:absolute;
+    top:1.6rem;
+    left:50%;
+    margin-left:0.25rem;
+    }
+
+.lastComment {
+    padding: 0.1rem 0.5rem;
+    border: 1px solid #ccc;
+    margin-left:0.25rem;
+    position:absolute;
+    top:4rem;
+    left:75%;
+    max-width:25%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    }
+
+.lastComment-input {
+    padding: 0.1rem 0.5rem;
+    border: 1px solid #ccc;
+    margin-left:2.25rem;
+    position:absolute;
+    top:1.6rem;
+    left:50%;
+    max-width:40%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    }
+
+.remove-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    display: inline;
+    }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    }    

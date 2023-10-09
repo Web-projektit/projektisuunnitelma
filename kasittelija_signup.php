@@ -2,8 +2,7 @@
 $display = "d-none";
 $message = "";
 $success = "success";
-$lisays = $lisattiin_token = $lahetetty = false;
-
+$exception = $loytyi = $lisays = $lisattiin_token = $lahetetty = false;
 
 function hae_kuva($kentta){   
 /* Huom. foreach-silmukka on tässä malliksi, ei valmis.
@@ -68,61 +67,78 @@ if (empty($errors)){
     $image = ($image) ? "'$image'" : "NULL";
     }   
     
-if (empty($errors)) {    
+if (empty($errors)) {  
+/* Ei lomakkeella näytettäviä validointivirheitä */      
 $query = "SELECT 1 FROM users WHERE email = '$email'";
-$result = $yhteys->query($query);
-if ($result->num_rows > 0) {
+debuggeri($query);
+[$result,$message] = db_query($query);
+if (!$message && $result->num_rows > 0) {
     $errors['email'] = $virheilmoitukset['email']['emailExistsError'];
     }
 
-$query = "SELECT 1 FROM users WHERE firstname = '$firstname' AND lastname = '$lastname'";
-$result = $yhteys->query($query);
-if ($result->num_rows > 0) {
+if (!$message and empty($errors)){    
+    $query = "SELECT 1 FROM users WHERE firstname = '$firstname' AND lastname = '$lastname'";
     debuggeri($query);
-    $errors['firstname'] = $virheilmoitukset['firstname']['nameExistsError'];
-    $errors['lastname'] = $virheilmoitukset['lastname']['nameExistsError'];
-    }    
-}    
+    [$result,$message] = db_query($query);
+    if (!$message and $result->num_rows > 0) {
+        $errors['firstname'] = $virheilmoitukset['firstname']['nameExistsError'];
+        $errors['lastname'] = $virheilmoitukset['lastname']['nameExistsError'];
+        }    
+     }
 
-debuggeri($errors);    
-if (empty($errors)) {
+if (!$message and empty($errors)) {
     $created = date('Y-m-d H:i:s');
     $password = password_hash($password, PASSWORD_DEFAULT);
-    $query = "INSERT INTO users (firstname, lastname, email, image, created, password) VALUES ('$firstname', '$lastname', '$email', $image, '$created', '$password')";
     debuggeri($query);
-    $result = $yhteys->query($query);
-    $lisays = $yhteys->affected_rows;
-    }
+    $yhteys->begin_transaction();
+    try {
+        $query = "INSERT INTO users (firstname, lastname, email, image, created, password) VALUES ('$firstname', '$lastname', '$email', $image, '$created', '$password')";
+        debuggeri($query);
+        [$result,$message] = db_query($query);
+        if ($message) throw new Exception ($message);
+        else $lisays = $yhteys->affected_rows;
 
-if ($lisays) {
-    
-    $id = $yhteys->insert_id;
-    $token = md5(rand().time());
-    $query = "INSERT INTO signup_tokens (users_id,token) VALUES ($id,'$token')";
-    debuggeri($query);
-    $result = $yhteys->query($query);
-    $lisattiin_token = $yhteys->affected_rows;
+        $id = $yhteys->insert_id;
+        $token = md5(rand().time());
+        $query = "INSERT INTO signup_tokens (users_id,token) VALUES ($id,'$token')";
+        debuggeri($query);
+        [$result,$message] = db_query($query);
+        if ($message) throw new Exception ($message);
+        else $lisattiin_token = $yhteys->affected_rows;
+
+        $yhteys->commit();
+        }
+    catch (Exception $e) {
+        $yhteys->rollback();
+        $message = $e->getMessage();
+        debuggeri($message);
+        }
     }
 
 if ($lisattiin_token) {
     $msg = "Vahvista sähköpostiosoitteesi alla olevasta linkistä:<br><br>";
     $msg.= "<a href='http://$PALVELIN/$PALVELU/verification.php?token=$token'>Vahvista sähköpostiosoite</a>";
-    $msg.= "<br><br>t. t. $PALVELUOSOITE";
+    $msg.= "<br><br>t. $PALVELUOSOITE";
     $subject = "Vahvista sähköpostiosoite";
     $lahetetty = posti($email,$msg,$subject);
     }   
 
 if ($lahetetty){
-    $message = "Tiedot on tallennettu. Sinulle on lähetty antamaasi sähköpostiosoitteeseen
-                vahvistuspyyntö. Vahvista siinä olevasta linkistä sähköpostiosoitteesi.";
+    $message = "Tiedot on tallennettu. Sinulle on lähetty vahvistuspyyntö antamaasi sähköpostiosoitteeseen. 
+    Vahvista siinä olevasta linkistä sähköpostiosoitteesi.";
 
     }
 elseif ($lisays) {
-    $message = "Tallennus onnistui!";
+    $message.= "Tallennus onnistui, mutta vahvistusviestiä ei lähetetty. Pyydä uusi vahvistuslinkki:<br>
+                <a href='resend_confirmation.php'>Lähetä uusi vahvistusviesti</a>";
+    $success = "warning";    
+    }     
+elseif ($message) {
+    $success = "danger";
     }
 else {
     $message = "Tallennus epäonnistui!";
-    $success = "danger";
+    $success = "danger";    
     }
 $display = "d-block";
 
@@ -131,6 +147,6 @@ var_export($_POST);
 var_export($_FILES);
 echo "<br>";
 var_export($errors);*/
-}
 
+}}
 ?>
