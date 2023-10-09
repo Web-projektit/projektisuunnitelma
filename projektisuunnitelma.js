@@ -18,7 +18,7 @@ const naytaTulos = response => {
     }
   }
 
-document.getElementById('confirmLink').addEventListener('click', () => {
+document.getElementById('confirmLink')?.addEventListener('click', () => {
   fetch (url, {
       method: 'POST',
       headers: {'Content-Type': 'application/json',},

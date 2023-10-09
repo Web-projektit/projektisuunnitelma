@@ -1,0 +1,12 @@
+License terms:
+
+This software is restricted to the private and personal context and 
+the rights granted by the licensor to the user to use this software 
+do not involve any commercial, business, or profitable activity.
+
+The software is provided “as is” without any explicit or implied warranties.
+The licensor shall not be liable for any damages or losses arising from the use or inability to use the software.
+
+The licensee is granted a non-exclusive, non-transferable, revocable license to use the software for private use only. 
+The user may use and modify the software for his or her own personal use without restrictions. 
+

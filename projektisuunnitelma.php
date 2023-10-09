@@ -74,6 +74,7 @@ function tyokalut(){
 <div class="invalid-feedback">
 <?= $errors['nimi'] ?? ""; ?>    
 </div>
+<?php if ($projekti_id): ?> 
 <button type="button" title="Lisää kommentti" class="openChat commentButton-input"><i class="fas fa-comment"></i></button>
 <span class="lastComment-input" hidden></span>
 <div class="chatBox" hidden>
@@ -81,6 +82,7 @@ function tyokalut(){
 <input id="comment_nimi" type="text" class="commentInput w-50" minlength="2">
 <div class="invalid-feedback"></div>
 </div>
+<?php endif; ?>
 </div>
 
 <div class="commentBox">    
@@ -90,6 +92,7 @@ function tyokalut(){
 <div class="invalid-feedback">
 <?= $errors['kuvaus'] ?? ""; ?>    
 </div>
+<?php if ($projekti_id): ?> 
 <button type="button" title="Lisää kommentti" class="openChat commentButton"><i class="fas fa-comment"></i></button>
 <span class="lastComment" hidden></span> <!-- Element to display the last comment -->
 <div class="chatBox" hidden>
@@ -97,6 +100,7 @@ function tyokalut(){
 <input id="comment_kuvaus" type="text" class="commentInput w-75">
 <div class="invalid-feedback"></div>
 </div>
+<?php endif; ?>
 </div>
 
 <div class="commentBox">
@@ -112,6 +116,7 @@ function tyokalut(){
 <div class="invalid-feedback">
 <?= $errors['asemointi'] ?? ""; ?>    
 </div>
+<?php if ($projekti_id): ?> 
 <button type="button" title="Lisää kommentti" class="openChat commentButton"><i class="fas fa-comment"></i></button>
 <span class="lastComment" hidden></span> <!-- Element to display the last comment -->
 <div class="chatBox" hidden>
@@ -119,6 +124,7 @@ function tyokalut(){
 <input id="comment_asemointi" type="text" class="commentInput w-75">
 <div class="invalid-feedback"></div>
 </div>
+<?php endif; ?>
 </div>
 
 <div class="commentBox">
@@ -130,6 +136,7 @@ function tyokalut(){
 <div class="invalid-feedback">
 <?= $errors['rajaus'] ?? ""; ?>    
 </div>
+<?php if ($projekti_id): ?> 
 <button type="button" title="Lisää kommentti" class="openChat commentButton"><i class="fas fa-comment"></i></button>
 <span class="lastComment" hidden></span> <!-- Element to display the last comment -->
 <div class="chatBox" hidden>
@@ -137,6 +144,7 @@ function tyokalut(){
 <input id="comment_rajaus" type="text" class="commentInput w-75">
 <div class="invalid-feedback"></div>
 </div> 
+<?php endif; ?>
 </div>   
 
 <label for="aloitus" class="form-label">Aloituspäivämäärä</label>      
@@ -170,7 +178,7 @@ function tyokalut(){
 </div>
 
 </div>
-<button name="painike" type="submit" class="btn btn-primary">Tallenna</button>
+<button name="painike" type="submit" class="btn btn-primary mb-3">Tallenna</button>
 </fieldset>
 </form>
 

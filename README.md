@@ -1,3 +1,5 @@
+Author: Jukka Aula.
+
 Tässä css:ään perustuva navigointipalkki (header.php ja navbar.css), jossa on myös oma painike avatun navigointipalkin sulkemiseen.  Jälkimmäisen linkit perustuvat käyttäjän rooliin.
 
 Molemmissa käytetään flexboxia. 

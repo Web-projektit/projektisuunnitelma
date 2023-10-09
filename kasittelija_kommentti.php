@@ -43,7 +43,7 @@ if (isset($_POST['project_id'], $_POST['field'], $_POST['comment'])){
                 }
             }
         $query = "INSERT INTO comments (project_id, user_id, username, field, comment) VALUES (
-            '$project_id', '$user_id', '$username', $field', '$comment') 
+            '$project_id', '$user_id', '$username', '$field', '$comment') 
             ON DUPLICATE KEY UPDATE 
             project_id = VALUES(project_id),
             user_id = VALUES(user_id),
@@ -51,9 +51,9 @@ if (isset($_POST['project_id'], $_POST['field'], $_POST['comment'])){
             field = VALUES(field),
             comment = VALUES(comment)"; 
         debuggeri($query);    
-        $result = $yhteys->query($query);
-        $lisays = $yhteys->affected_rows;
-        $message = ($lisays) ? "OK" : "Virhe: Tallennus epäonnistui!";   
+        [$result,$virhe] = db_query($query);
+        if ($result) $lisays = $yhteys->affected_rows;   
+        $message = ($lisays) ? "OK" : "Virhe: $virhe";   
         }
     else $message = reset($errors);     
     echo json_encode($message);

@@ -5,4 +5,5 @@ vendor
 .env
 tunnukset.*
 *.txt
+!license.txt
 

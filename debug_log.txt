@@ -932,3 +932,127 @@
 2023-10-09 19:14:51 loggedIn:user
 2023-10-09 19:14:51 POST:array (
 )
+2023-10-09 19:32:28 loggedIn:user
+2023-10-09 19:32:46 loggedIn:user
+2023-10-09 19:32:46 POST:array (
+)
+2023-10-09 19:35:23 loggedIn:user
+2023-10-09 19:35:23 POST:array (
+)
+2023-10-09 19:35:43 POST:array (
+  'project_id' => '',
+  'field' => 'comment_nimi',
+  'comment' => 'Kommenti',
+)
+2023-10-09 19:35:43 INSERT INTO comments (project_id, user_id, username, field, comment) VALUES (
+            '', '4', 'JukkaA', comment_nimi', 'Kommenti') 
+            ON DUPLICATE KEY UPDATE 
+            project_id = VALUES(project_id),
+            user_id = VALUES(user_id),
+            username = VALUES(username),
+            field = VALUES(field),
+            comment = VALUES(comment)
+2023-10-09 19:43:47 POST:array (
+  'project_id' => '',
+  'field' => 'comment_nimi',
+  'comment' => 'Testiä',
+)
+2023-10-09 19:43:47 INSERT INTO comments (project_id, user_id, username, field, comment) VALUES (
+            '', '4', 'JukkaA', comment_nimi', 'Testiä') 
+            ON DUPLICATE KEY UPDATE 
+            project_id = VALUES(project_id),
+            user_id = VALUES(user_id),
+            username = VALUES(username),
+            field = VALUES(field),
+            comment = VALUES(comment)
+2023-10-09 19:47:35 POST:array (
+  'project_id' => '',
+  'field' => 'comment_nimi',
+  'comment' => 'Testiä',
+)
+2023-10-09 19:47:35 INSERT INTO comments (project_id, user_id, username, field, comment) VALUES (
+            '', '4', 'JukkaA', 'comment_nimi', 'Testiä') 
+            ON DUPLICATE KEY UPDATE 
+            project_id = VALUES(project_id),
+            user_id = VALUES(user_id),
+            username = VALUES(username),
+            field = VALUES(field),
+            comment = VALUES(comment)
+2023-10-09 19:52:26 loggedIn:user
+2023-10-09 19:52:26 POST:array (
+)
+2023-10-09 19:54:54 loggedIn:user
+2023-10-09 19:54:54 POST:array (
+)
+2023-10-09 19:57:23 loggedIn:user
+2023-10-09 19:57:23 POST:array (
+)
+2023-10-09 20:01:30 loggedIn:user
+2023-10-09 20:01:30 POST:array (
+)
+2023-10-09 20:01:35 loggedIn:user
+2023-10-09 20:01:35 POST:array (
+)
+2023-10-09 20:02:23 loggedIn:user
+2023-10-09 20:02:23 POST:array (
+)
+2023-10-09 20:02:51 loggedIn:user
+2023-10-09 20:02:51 POST:array (
+)
+2023-10-09 20:03:15 loggedIn:user
+2023-10-09 20:03:15 POST:array (
+)
+2023-10-09 20:05:25 loggedIn:user
+2023-10-09 20:05:25 POST:array (
+)
+2023-10-09 20:06:03 loggedIn:user
+2023-10-09 20:06:03 POST:array (
+)
+2023-10-09 20:06:16 loggedIn:user
+2023-10-09 20:06:16 POST:array (
+)
+2023-10-09 20:08:38 loggedIn:user
+2023-10-09 20:08:38 POST:array (
+)
+2023-10-09 20:09:06 loggedIn:user
+2023-10-09 20:09:06 POST:array (
+)
+2023-10-09 20:09:19 loggedIn:user
+2023-10-09 20:09:19 POST:array (
+)
+2023-10-09 20:09:20 loggedIn:user
+2023-10-09 20:09:20 POST:array (
+)
+2023-10-09 20:10:50 loggedIn:user
+2023-10-09 20:10:50 POST:array (
+)
+2023-10-09 20:11:33 loggedIn:user
+2023-10-09 20:11:33 POST:array (
+)
+2023-10-09 20:11:46 loggedIn:user
+2023-10-09 20:11:46 POST:array (
+)
+2023-10-09 20:11:55 loggedIn:user
+2023-10-09 20:11:55 POST:array (
+)
+2023-10-09 20:12:14 loggedIn:user
+2023-10-09 20:12:14 POST:array (
+)
+2023-10-09 20:13:02 loggedIn:user
+2023-10-09 20:13:02 POST:array (
+)
+2023-10-09 20:13:04 loggedIn:user
+2023-10-09 20:13:04 POST:array (
+)
+2023-10-09 20:13:31 loggedIn:user
+2023-10-09 20:13:31 POST:array (
+)
+2023-10-09 20:14:44 loggedIn:user
+2023-10-09 20:14:44 POST:array (
+)
+2023-10-09 20:14:59 loggedIn:user
+2023-10-09 20:14:59 POST:array (
+)
+2023-10-09 20:16:23 loggedIn:user
+2023-10-09 20:16:23 POST:array (
+)

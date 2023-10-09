@@ -81,3 +81,8 @@ legend {
 .previewDiv button {
   float:right;
   }  
+
+ button[type="submit"] {
+  margin-right: 30%;
+  margin-left: auto;
+  }
