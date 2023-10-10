@@ -1,7 +1,7 @@
-esimerkkikoodia
-profiilikuvat
-vendor
-.vscode
+/esimerkkikoodia
+/profiilikuvat
+/vendor
+/.vscode
 .env
 tunnukset.*
 *.txt
